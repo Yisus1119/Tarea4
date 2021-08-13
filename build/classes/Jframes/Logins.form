@@ -260,6 +260,9 @@
               <Image iconType="3" name="/Im&#xe1;genes/profile-user64.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel3MouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
