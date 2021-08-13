@@ -9,13 +9,13 @@ package Clases;
  *
  * @author Jesús Quezada
  */
-public class ComprobarConexionBD {
+public class ComprobarConexionBD extends ConectarBD{
   
 
     public static void main(String[] args) {
     ConectarBD comprobar = new ConectarBD();
     comprobar.conectar();
-   
+
         
         
     }
