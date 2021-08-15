@@ -15,6 +15,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Tabla extends javax.swing.JFrame {
 
+    //siempre haremos uso de nuestra conexión heredada de la clase ConectarBD.
     Connection con = null;
     PreparedStatement prepararconsulta = null;
     DefaultTableModel modeloTabla = new DefaultTableModel();
@@ -22,6 +23,7 @@ public class Tabla extends javax.swing.JFrame {
     /**
      * Creates new form Tabla
      */
+    //Aquí vamos a crear nuestra tabla, la cual estará enlazada a nuestra base de datos, haciendo que nuestros datos aparezcan en ella.
     public Tabla() {
         initComponents();
         setLocationRelativeTo(null);
@@ -45,6 +47,7 @@ public class Tabla extends javax.swing.JFrame {
             modeloTabla.addColumn("Correo electrónico");
             modeloTabla.addColumn("Nombre de usuario");
 
+            //aquñi creamos un while y luego un for para que nos vaya poniendo los datos que vayan apareciendo en las columnas de nuestra tabla.
             while (resultadoBusqueda.next()) {
                 Object[] filas = new Object[datosObtenidos];
                 for (int i = 0; i < datosObtenidos; i++) {
@@ -58,6 +61,8 @@ public class Tabla extends javax.swing.JFrame {
         }
     }
 
+    /*nuestro método para limpiar casillas, el cual no podemos olvidar, es importante usar el encapsulamiento en nuestros métodos o abstracción, 
+ya que así nos aseguramos de que no interactue con otra clase no autorizada.*/
     private void Limpiar() {
         txtNombre.setText("");
         txtApellido.setText("");
@@ -128,6 +133,7 @@ public class Tabla extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jtproductos);
 
+        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/anadir.png"))); // NOI18N
         btnAgregar.setText("Añadir");
         btnAgregar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -136,6 +142,7 @@ public class Tabla extends javax.swing.JFrame {
             }
         });
 
+        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/actualizar.png"))); // NOI18N
         btnActualizar.setText("Actualizar");
         btnActualizar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -144,6 +151,7 @@ public class Tabla extends javax.swing.JFrame {
             }
         });
 
+        btnBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/borrar-cuenta.png"))); // NOI18N
         btnBorrar.setText("Borrar");
         btnBorrar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnBorrar.addActionListener(new java.awt.event.ActionListener() {
@@ -183,6 +191,7 @@ public class Tabla extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/cerrar-sesion.png"))); // NOI18N
         jLabel3.setText("Cerrar sesión");
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -207,6 +216,7 @@ public class Tabla extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/limpiar.png"))); // NOI18N
         jLabel9.setText("Limpiar casillas");
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -240,21 +250,22 @@ public class Tabla extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(jLabel9)))
-                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel3))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(195, 195, 195)
-                                .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(201, 201, 201)
-                                .addComponent(btnBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jScrollPane1))
-                .addGap(19, 19, 19))
+                                .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(179, 179, 179)
+                                .addComponent(btnBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1))
+                        .addGap(19, 19, 19))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -290,7 +301,7 @@ public class Tabla extends javax.swing.JFrame {
                     .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel9))
@@ -313,13 +324,16 @@ public class Tabla extends javax.swing.JFrame {
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // TODO add your handling code here:
+        //aquí cuando cerramos sesión nos llevará de nuevo al login.
         this.dispose();
         Logins verLogin = new Logins();
         verLogin.setVisible(true);
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jtproductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtproductosMouseClicked
-        // TODO add your handling code here:
+        /*Este es un método que utilizamos para que cuando seleccionemos un registro, este aparezca en los campos y así podamos 
+        editar alguna información, o eliminar dicho registro.*/
+        
         int mostrar = this.jtproductos.getSelectedRow();
         this.txtNombre.setText(jtproductos.getValueAt(mostrar, 0).toString());
         this.txtApellido.setText(jtproductos.getValueAt(mostrar, 1).toString());
@@ -330,12 +344,13 @@ public class Tabla extends javax.swing.JFrame {
     }//GEN-LAST:event_jtproductosMouseClicked
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        // TODO add your handling code here:
+        //Aquí haremos la función de actualizar nuestros registros.
         try {
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/usuarios", "root", "toor");
             String consulta = "UPDATE registros SET nombre=?, apellido=?, numerotel=?, correo=?, nombre_usuario=? WHERE nombre_usuario=?";
             prepararconsulta = con.prepareStatement(consulta);
 
+             //siempre utilizaremos estos códigos que ven aquí, ya que haremos las transacciones en base a los datos que se encuentren en nuestros campos del sistema.
             prepararconsulta.setString(1, txtNombre.getText());
             prepararconsulta.setString(2, txtApellido.getText());
             prepararconsulta.setString(3, txtNumero.getText());
@@ -345,20 +360,20 @@ public class Tabla extends javax.swing.JFrame {
 
             int rowsUpdated = prepararconsulta.executeUpdate();
             if (rowsUpdated > 0) {
-                JOptionPane.showMessageDialog(null, "Se ha actualizado el registro");
+                JOptionPane.showMessageDialog(null, "Se ha actualizado el registro seleccionado", "Administración de registros", JOptionPane.INFORMATION_MESSAGE);
                 this.dispose();
                 Tabla RecargarTabla = new Tabla();
                 RecargarTabla.setVisible(true);
             }
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error: " + e);
+            JOptionPane.showMessageDialog(null, "Error al actualizar: " + e, "Administración de registros", JOptionPane.ERROR_MESSAGE);
         }
 
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        // TODO add your handling code here:
+        // Aquí haremos la función de insertar nuevos registros a nuestra base de datos.
         try {
             String consulta = "INSERT INTO registros (nombre, apellido, numerotel, correo, nombre_usuario) VALUES (?,?,?,?,?)";
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/usuarios", "root", "toor");
@@ -369,18 +384,18 @@ public class Tabla extends javax.swing.JFrame {
             prepararconsulta.setString(4, txtCorreo.getText());
             prepararconsulta.setString(5, txtUsuario.getText());
             prepararconsulta.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Se han añadido nuevos registros");
+            JOptionPane.showMessageDialog(null, "Se ha añadido un nuevo registro", "Administración de registros", JOptionPane.INFORMATION_MESSAGE);
             this.dispose();
             Tabla RecargarTabla = new Tabla();
             RecargarTabla.setVisible(true);
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error: " + e);
+            JOptionPane.showMessageDialog(null, "Error al añadir: " + e, "Administración de registros", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
-        // TODO add your handling code here:
+        // Aquí haremos la función de borrar el registro seleccionado de nuestra base de datos.
         try {
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/usuarios", "root", "toor");
 
@@ -391,18 +406,18 @@ public class Tabla extends javax.swing.JFrame {
             prepararconsulta.setString(1, txtUsuario.getText());
             prepararconsulta.executeUpdate();
 
-            JOptionPane.showMessageDialog(null, "Se ha borrado el registro");
+            JOptionPane.showMessageDialog(null, "Se ha borrado el registro seleccionado", "Administración de registros", JOptionPane.INFORMATION_MESSAGE);
             this.dispose();
             Tabla RecargarTabla = new Tabla();
             RecargarTabla.setVisible(true);
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error al borrar el registro: " + e);
+            JOptionPane.showMessageDialog(null, "Error al borrar el registro: " + e, "Administración de registros", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnBorrarActionPerformed
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-        // TODO add your handling code here:
+        // Aquí invocamos el método para limpiar las casillas.
         Limpiar();
     }//GEN-LAST:event_jLabel9MouseClicked
 

@@ -1,14 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Jframes;
 
 /**
  *
  * @author Jesús Quezada
  */
+
+//En esta clase se encuentra lo que es nuestro selector, que nos servirá para elegir que acción queremos realizar.
+
 public class Selector extends javax.swing.JFrame {
 
     /**
@@ -16,7 +15,7 @@ public class Selector extends javax.swing.JFrame {
      */
     public Selector() {
         initComponents();
-        setLocationRelativeTo(null);
+        setLocationRelativeTo(null); 
         this.setTitle("Bienvenid@");
     }
 
@@ -95,7 +94,7 @@ public class Selector extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
 
-        //uso de la POO
+        //uso del polimorfismo, ya que los metodos interactuan diferentes en cada clase.
         //creamos una instancia
         Logins enterLogin = new Logins();
         enterLogin.setVisible(true);
@@ -103,7 +102,8 @@ public class Selector extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-        // uso de la POO
+        // uso del polimorfismo
+        //uso de la instancia
         Registers enterRegister = new Registers();
         enterRegister.setVisible(true);
         this.dispose();

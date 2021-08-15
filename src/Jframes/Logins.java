@@ -12,14 +12,17 @@ import javax.swing.JOptionPane;
  *
  * @author Jesús Quezada
  */
+//siempre haremos el uso de la herencia, ya que debemos heredar todos los componentes de nuestro Jframe de la clase Javax.swing, la cual viene en nuestro IDE
 public class Logins extends javax.swing.JFrame {
 
+    //creamos nuestra conexión con MySQL.
     Connection con = null;
     PreparedStatement prepararConsulta = null;
 
     /**
      * Creates new form Logins
      */
+    //Siempre utilizaremos este método para darle formato nuestro Jframes, tales como: un titulo en la ventana, y la orientación en donde nos aparece.
     public Logins() {
         initComponents();
         setLocationRelativeTo(null);
@@ -27,13 +30,16 @@ public class Logins extends javax.swing.JFrame {
 
     }
 
+    //método para limpiar las casillas, en estos métodos utilizamos lo que es la abstracción, ya que nos ayudará a hacer el programa más óptimo.
     public void LimpiarCasillas() {
         txtUsuario.setText("");
         txtPasswd.setText("");
     }
 
+    //Método para confirmar a nuestro usuario a la hora de iniciar sesión.
     private void ConfirmarUsuario() {
         try {
+            //siempre debemos hacer nuestra conexión a la base de datos mediante nuestro conector y la dirección de nuestro localhost.
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/usuarios", "root", "toor");
 
@@ -48,7 +54,7 @@ public class Logins extends javax.swing.JFrame {
                 Tabla verTabla = new Tabla();
                 verTabla.setVisible(true);
             } else {
-                JOptionPane.showMessageDialog(null, "Datos incorrectos", "Iniciar sesión", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Debe ingresar su usuario y contraseña, si no está registrado debe registrarse", "Iniciar sesión", JOptionPane.ERROR_MESSAGE);
                 LimpiarCasillas();
             }
             con.close();
@@ -232,6 +238,7 @@ public class Logins extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //en los botones y en las demás herramientas que utilicemos, haremos uso del awt, ya que nos permitirá interactuar con el objeto que hemos creado.
     private void lblRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrarMouseClicked
         // TODO add your handling code here:
         Registers entrarRegistro = new Registers();
@@ -239,11 +246,13 @@ public class Logins extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_lblRegistrarMouseClicked
 
+    //aquí llamamos al método ConfirmarUsuario, el cual definimos anteriormente.
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         ConfirmarUsuario();
     }//GEN-LAST:event_btnLoginActionPerformed
 
+    //Este es un atajo del programa, el cual, si presionamos el Icono del login, nos llevará al inicio, es decir, a nuestro selector, utilizando el patrón de diseño singleton, ya que solamente tendrá esa sola instancia.
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // TODO add your handling code here:
         this.dispose();

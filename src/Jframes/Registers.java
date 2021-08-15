@@ -26,7 +26,7 @@ public class Registers extends javax.swing.JFrame {
         this.setTitle("Registro");
     }
 
-    //uso del encapsulamiento y de la abstaccion
+    //Creamos un método que nos permitirá ingresar los datos de nuestro registro a la base de datos, aquí haremos uso del encapsulamiento y de la abstacción.
     private void InsertarSQL() {
         Selector IniciarSelector = new Selector();
 
@@ -42,6 +42,7 @@ public class Registers extends javax.swing.JFrame {
             prepararConsulta.setString(6, txtpassword.getText());
             prepararConsulta.setString(7, txtrepeatpassword.getText());
 
+            //aquí haremos uso de condicionales anidadas para evitar que se nos deje un campo vació o que las contraseñas no sean iguales.
             if (txtNombreUsuario.getText().length() == 0) {
                 JOptionPane.showMessageDialog(null, "El campo del nombre de usuario está vacío", "Estado del Registro", JOptionPane.ERROR_MESSAGE);
                 System.exit(0);
@@ -212,19 +213,17 @@ public class Registers extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(139, Short.MAX_VALUE)
                 .addComponent(jLabel8)
-                .addGap(78, 78, 78)
+                .addGap(86, 86, 86)
                 .addComponent(jLabel1)
-                .addGap(277, 277, 277))
+                .addGap(269, 269, 269))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(21, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(8, 8, 8)))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel8))
                 .addGap(15, 15, 15))
         );
 
@@ -338,13 +337,13 @@ public class Registers extends javax.swing.JFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
+        //Aquñi llamaremos al método anterior y lo ejecutamos a través del botón de registrarse.
         InsertarSQL();
-
-
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
         // TODO add your handling code here:
+        //Este es otro caso del diseño singletown, el cual si presionamos el ícono que sale en la parte superior, nos llevará a nuestra única instancia la cual es el selector.
         this.dispose();
         Selector verInicio = new Selector();
         verInicio.setVisible(true);
