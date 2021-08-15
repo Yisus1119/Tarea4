@@ -1,0 +1,9 @@
+¡Saludos Distinguido Maestro!
+
+Cada línea de código se encuentra totalmente documentada, con el propósito de hacer el código lo más didáctico posible, 
+con el tema de los patrones de diseño, lo pude entender mientras realizaba el programa, por si nota que aún le falta algo por mejorar, 
+en cuanto al vídeo, lamento la velocidad con la que tuve que presentar el programa, me hubiese encantado realizarlo detalladamente 
+desde la creación del usuario, pero 2 minutos no me serían suficientes, lo importante es que la información presentada se haya entendido, 
+sin más que añadir, me despido, saludos cordialmente.
+
+Att. Jesús E. Quezada González
